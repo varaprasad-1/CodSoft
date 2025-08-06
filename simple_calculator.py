@@ -1,7 +1,7 @@
 import os
 
 def clear_screen():
- os.system('cls')
+	os.system('cls')
 	
 def add(a, b):
     return a + b
@@ -16,28 +16,29 @@ def divide(a, b):
     try:
         return a,b,a / b
     except ZeroDivisionError:
-     while b==0:
-      print("\nError: Division by zero")
-      b= float(input("Enter another denominator value: "))
-     return a,b,a/b
+	    while b==0:
+		    print("\nError: Division by zero")
+		    b= float(input("Enter another denominator value (greater than 0): "))
+	    return a,b,a/b
 
-def format_number(n):
-    return int(n) if n==int(n) else n
 def read_number(prompt):
-	
     while True:
         try:
             return float(input(prompt))
         except ValueError:
-            print("Invalid input! Please enter a valid number.")
-  
+            print("Invalid input! Please enter a valid number.\n")
+
+def format_number(n):
+    return int(n) if n == int(n) else n
+
+		
 def main():
     
     while True:
         print("="*40)
         print(" "*9,"Welcome to Calculator"," "*9)
-        print("="*40)
-        num1 = read_number("\nEnter the first number: ")
+        print("="*40,"\n")
+        num1 = read_number("Enter the first number: ")
         num2 = read_number("Enter the second number: ")
 
         print("\nChoose an operation:")
@@ -72,8 +73,8 @@ def main():
         if again not in ('yes', 'y'):
             print("\nThank you for using Calculator! 👋")
             break
-            
-        clear_screen();
+        clear_screen()
+        
 # Run the calculator
 if __name__ == "__main__":
     main()
